@@ -1,0 +1,29 @@
+@import '../storebase';
+@import '../components/header';
+@import '../components/swiper-min';
+@import '../components/filter-dialog';
+@import '../components/footer';
+
+
+.top-bar{
+  //border-bottom:1px solid #e0e0e0 ;
+}
+.body-wrapper{
+  width: 100%;
+  padding: 0 px2rem(60);
+  color:#333;
+  .pic{
+    width: 100%;
+    height: px2rem(480);
+    background: url("../images/guidepic/aboutus.jpg") no-repeat center;
+    background-size: contain;
+  }
+  p{
+    @include px2px(font-size,30);
+    text-align: justify;
+    line-height:px2rem(58);
+    margin-bottom: px2rem(25);
+
+  }
+}
+

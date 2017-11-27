@@ -1,0 +1,79 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <% if(this.indexlist){ var focus=this.indexlist.focus,lists=this.indexlist.list; %>
+    <div class="swiper-top-banner">
+        <div class="swiper-wrapper">
+
+            <% if(focus&&focus instanceof Array&&focus.length>0){%>
+            <% focus.forEach(function(info,index){ %>
+            <div class="swiper-slide">
+                <a href="<%= info.url%>">
+                    <img src="<%= info.thumb %>" alt="<%= info.title%>">
+                    <h2>
+                        <span><%= info.title||''%></span>
+                        <span><%= info.title1||''%></span>
+                    </h2>
+                </a>
+            </div>
+            <% }) %>
+            <% } %>
+        </div>
+        <div class="top-banner-pagination"></div>
+    </div>
+
+        <% if(lists&&lists instanceof Array && lists.length>0){  %>
+        <ul class="pindao">
+            <% lists.forEach(function(list,index){%>
+                <%if(list.options){ var options=list.options%>
+                <li>
+                    <h1><%= list.title%></h1>
+                    <a class="nohref" href="javascript:;">
+                        <img src="<%= list.img %>" alt="">
+                    </a>
+                    <ul>
+                        <%if(options instanceof Array && options.length>0){%>
+                            <% options.forEach(function(option,index){ %>
+
+                        <li>
+                        <a href="<%= option.url%>">
+                            <%= option.title%> <i></i>
+                        </a>
+                        </li>
+                            <%})%>
+                        <%}%>
+
+
+                    </ul>
+                </li>
+
+                <%}else{%>
+                <li>
+                    <h1><%= list.title%></h1>
+
+                    <a href="<%= list.url%>">
+                        <img src="<%= list.img %>" alt="">
+                    </a>
+
+                </li>
+
+                <%}%>
+
+
+            <%})%>
+
+        </ul>
+        <%}%>
+
+    <%}%>
+</div>
+
+
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+

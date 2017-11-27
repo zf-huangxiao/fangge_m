@@ -1,0 +1,52 @@
+@import '../storebase';
+@import '../components/header';
+@import '../components/swiper-min';
+@import '../components/filter-dialog';
+@import '../components/footer';
+
+
+.top-bar{
+  //border-bottom:1px solid #e0e0e0 ;
+}
+.body-wrapper{
+  width: 100%;
+  padding: 0 px2rem(60);
+  margin-bottom: px2rem(60);
+  color:#333;
+  h1{
+    @include px2px(font-size,32);
+    width: 100%;
+    height:px2rem(155);
+    line-height:px2rem(155);
+    text-align: center;
+    position: relative;
+    &::after{
+      content: '';
+      display: block;
+      width: px2rem(80);
+      height: 1px;
+      -webkit-transform: scaleY(.5);
+      transform:scaleY(.5);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      background: #000;
+      position: absolute;
+      left: 50%;
+      margin-left: px2rem(-40);
+      bottom: px2rem(35);
+
+
+    }
+  }
+  h2{
+    @include px2px(font-size,32);
+    margin:px2rem(60) 0;
+  }
+  p{
+    @include px2px(font-size,30);
+    text-align: justify;
+    line-height:px2rem(58);
+    margin-bottom: px2rem(25);
+  }
+}
+

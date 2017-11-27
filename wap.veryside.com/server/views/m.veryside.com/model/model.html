@@ -1,0 +1,85 @@
+<%if(this.indexlist instanceof Array && this.indexlist.length==0){%>
+<%# helper/header_model.html %>
+<p class="nothis">暂无此文章</p>
+<%# helper/footer.html %>
+<%}else{%>
+
+<%# helper/header_model.html %>
+<%# component/header.html %>
+<div class="body-wrapper">
+    <%if(this.indexlist){%>
+    <%if(this.indexlist.info && Object.prototype.toString.call(this.indexlist.info)=='[object Object]'){var info=this.indexlist.info %>
+    <div class="top-pic">
+        <div class="pic">
+            <img src="<%= info.picture%>" alt="">
+            <span class="tag">
+            型客计划<%= info.index %>
+             </span>
+            <div class="lead">
+                <p class="logo"></p>
+                <p class="close">&times;</p>
+                <p class="name"><%= info.name%></p>
+                <p class="tishi"></p>
+                <i class="hided"></i>
+            </div>
+
+        </div>
+        <div class="desc">
+            <%= info.guide?info.guide:''%>
+        </div>
+    </div>
+    <div class="content">
+        <h1><%= info.imgs_title?info.imgs_title:''%></h1>
+        <%if(info.pictures&&info.pictures instanceof Array&&info.pictures.length>0){ var pictures=info.pictures%>
+        <% pictures.forEach(function(cur,index){%>
+        <img src="<%= cur.src%>" alt="">
+        <p class="pic-brand"><%= cur.brand %></p>
+        <p class="pic-desc"><%= cur.match%></p>
+        <%})%>
+        <%}%>
+
+    </div>
+    <div class="talkabout">
+        <h1><%= info.qa_title?info.qa_title:''%></h1>
+        <div>
+            <%= info.contents?info.contents:''%>
+        </div>
+    </div>
+    <div class="theirFav">
+        <h1><%= info.item_title?info.item_title:''%></h1>
+        <%if(info.goods && info.goods instanceof Array && info.goods.length>0){var goods=info.goods %>
+        <%goods.forEach(function(cur,index){%>
+        <div>
+            <a class="pic" href="<%= cur.url%>">
+                <img src="<%= cur.src%>" alt="">
+            </a>
+            <p><%= cur.title%></p>
+            <p>售价约 ：<%= cur.price%> RMB</p>
+            <a href="<%= cur.url%>" class="buynow">立即购买</a>
+        </div>
+        <%})%>
+        <%}%>
+
+    </div>
+    <div class="plan">
+        <p><%= info.detail?info.detail:''%></p>
+        <% if(this.indexlist.more){ var more = this.indexlist.more %>
+        <a href="<%= more.url?more.url:'javascript:;'%>">
+            <%= more.title?more.title:''%>
+        </a>
+        <%}%>
+
+    </div>
+    <div class="usinfo">
+        <p><%= info.rules?info.rules:''%></p>
+    </div>
+    <%}%>
+    <%}%>
+</div>
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+
+<%}%>

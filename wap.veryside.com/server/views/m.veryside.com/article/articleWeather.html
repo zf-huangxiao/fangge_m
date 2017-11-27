@@ -1,0 +1,39 @@
+<%# helper/header.html %>
+<div class="body-wrapper">
+    <i class="weixin-remind"></i>
+    <% if(this.article && this.article != null && typeof(this.article) != undefined && JSON.stringify(this.article) !='{}' ){ %>
+        <div class="top-pic">
+            <img src="<%= this.article.info.thumb %>" alt=""/>
+        </div>
+        <div class="article-wrapper">
+
+            <% if(this.article.topic){ %>
+            <p class="article-tag pd-35 mojineed_p"><a><%= this.article.topic.title %></a></p>
+            <% } %>
+
+            <h1 class="article-title pd-35">
+                <span><%= this.article.info.title %></span>
+            </h1>
+
+            <div class="author pd-35">
+                <a class="author-nick" href="<%= this.article.author.url %>"><%= this.article.author.nickname %></a>
+                <%= this.article.info.date||''%>
+            </div>
+
+            <!--以下为内容-->
+            <%= this.article.info.contents ? this.article.info.contents : '<div class="no-article">精彩内容稍后呈上...<div>' %>
+            <div class="author_end">
+                <a class="author-ico" href="<%= this.article.author.url %>">
+                    <img src="<%= this.article.author.thumb %>" alt=""/>
+                </a>
+                <a class="author-nick" href="<%= this.article.author.url %>"><%= this.article.author.nickname %></a>
+                <a class="author-identity" href="<%= this.article.author.url %>"><%= this.article.author.identity||'VerySide编辑'%></a>
+                <a class="author-btn" href="<%= this.article.author.url %>">主页</a>
+            </div>
+        </div>
+        <!--<div class="no-more"></div>-->
+
+
+    <% } %>
+</div>
+<%# helper/footer_moji.html %>

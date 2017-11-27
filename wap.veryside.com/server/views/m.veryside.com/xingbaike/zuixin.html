@@ -1,0 +1,46 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <%if(this.indexlist){var lists=this.indexlist.list%>
+    <div class="content">
+        <h1><%= this.indexlist.seo.h1%></h1>
+        <ul>
+            <%if(lists &&lists instanceof Array&&lists.length>0){%>
+
+            <%lists.forEach(function(list,index){%>
+            <li>
+                <a href="<%= list.url%>">
+                    <span>
+                        <%= list.title%>
+                        <%if(list.etitle.length>0){%>
+                        <br/><%= list.etitle%>
+                        <%}%>
+                    </span>
+
+                    <img src="<%= list.thumb%>" alt="<%= list.etitle%>">
+                </a>
+
+            </li>
+
+            <%})%>
+            <%}%>
+        </ul>
+    </div>
+    <%}%>
+
+
+
+
+
+
+</div>
+
+
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+

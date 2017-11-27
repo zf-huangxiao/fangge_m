@@ -1,0 +1,59 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+
+
+<div class="body-wrapper">
+    <%if(this.indexlist){ var author=this.indexlist,info=author.info,lists=author.list %>
+
+    <div class="editor">
+        <% if(info){%>
+        <img src="<%= info.thumb %>" alt="<%= info.identity%>">
+        <p  class="author-nick"><%= info.nickname||VerySide编辑%></p>
+        <p class="author-identity"><%= info.identity%></p>
+        <p><%= info.description%></p>
+        <%}%>
+
+    </div>
+    <div class="articles">
+        <%if(lists && lists instanceof Array && lists.length>0){%>
+        <ul class="content-list"  id="content-list" temId="j-tmpl-newlist">
+            <% lists.forEach(function(list,index){%>
+            <li>
+                <a href="<%= list.url%>">
+                    <img src="<%= list.thumb%>" alt="<%= list.tag%>">
+                    <i></i>
+                </a>
+                <p><%= list.title%></p>
+            </li>
+            <% })%>
+
+        </ul>
+        <%}%>
+
+    </div>
+    <%# component/load_more.html%>
+
+    <%}%>
+</div>
+
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+<script id="j-tmpl-newlist" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+    <li>
+        <a href="{{=it.list[i].url}}">
+            <img src="{{=it.list[i].thumb}}" alt="{{=it.list[i].tag}}">
+            <i></i>
+        </a>
+        <p>{{=it.list[i].title}}</p>
+
+    </li>
+    {{ } }}
+</script>
+
+
+
+

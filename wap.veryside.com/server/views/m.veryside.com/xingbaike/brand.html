@@ -1,0 +1,57 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+    <% if(this.indexlist){ var brands=this.indexlist %>
+    <div class="brands-block"></div>
+    <div class="letters">
+        <h1><%= this.indexlist.seo.h1%></h1>
+        <ul>
+            <%if(brands.letters&&brands.letters instanceof Array&&brands.letters.length>0){ var letters=brands.letters;%>
+            <%letters.forEach(function(letter,index){%>
+            <li><a href="#<%= letter%>" class="<%= index==0?'current':''%>"><%= letter%></a></li>
+            <%})%>
+            <%}%>
+        </ul>
+
+    </div>
+    <div class="logos">
+
+        <%if(brands.list){ var list=brands.list %>
+        <% if(list instanceof Object ){%>
+        <% for(var l in list){%>
+        <div>
+            <span class="letter"><%= l%></span>
+            <%if(list[l] instanceof Array&&list[l].length>0){ var lists=list[l] %>
+            <ul>
+                <%lists.forEach(function(l,i){%>
+                <li>
+                    <a href="<%= l.url %>">
+                        <%= l.title%>
+                    </a>
+                </li>
+                <%})%>
+
+            </ul>
+
+            <%}%>
+
+
+        </div>
+        <%}%>
+        <%}%>
+        <%}%>
+
+    </div>
+
+
+    <%}%>
+
+</div>
+
+<%# component/filter_dialog.html%>
+<%# component/footer.html%>
+<%# component/return_top.html%>
+<%# helper/footer.html %>
+

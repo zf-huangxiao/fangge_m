@@ -1,0 +1,35 @@
+@import 'base/base';
+@import 'helpers/functionsnew';
+#tlbstoolbar { display: none!important;}
+.main-container {
+  position: relative;
+  //max-width: 750px;
+  //margin: 0 auto;
+  //@media (min-width: $screen-am) {
+  //  max-width: px2rem($screen-am-mw);
+  //  margin: 0 auto;
+  //}
+  //padding-bottom: px2rem(75);
+}
+
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.hide {
+  display: none !important;
+}
+
+

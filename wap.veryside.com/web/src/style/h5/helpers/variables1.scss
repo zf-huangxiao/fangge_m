@@ -1,0 +1,27 @@
+@charset "UTF-8";
+// 全局样式设置
+// `<body>` 背景颜色
+$body-bg: #eee;
+
+//## Define the breakpoints at which your layout will change, adapting to different screen sizes.
+
+// Extra small screen / phone
+$screen-xs:                  px2rem(480) !default;
+$screen-phone:               $screen-xs !default;
+
+// veryside screen
+$screen-am:                  px2rem(750) !default;
+$screen-am-mw:               750;
+
+// Small screen / tablet
+$screen-sm:                  px2rem(768) !default;
+$screen-tablet:              $screen-sm !default;
+
+// Medium screen / desktop
+$screen-md:                  px2rem(992) !default;
+$screen-am:             $screen-md !default;
+
+// Large screen / wide desktop
+$screen-lg:                  px2rem(1200) !default;
+$screen-lg-desktop:          $screen-lg !default;
+

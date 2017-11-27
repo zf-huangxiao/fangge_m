@@ -1,0 +1,188 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+
+<div class="body-wrapper">
+    <i class="weixin-remind"></i>
+    <% if(this.article && this.article != null && typeof(this.article) != undefined && JSON.stringify(this.article) !='{}' ){ %>
+    <div class="top-pic">
+        <img src="<%= this.article.info.thumb %>" alt=""/>
+    </div>
+    <div class="article-wrapper">
+
+        <% if(this.article.topic){ %>
+        <p class="article-tag pd-35"><a href="<%= this.article.topic.url %>"><%= this.article.topic.title %></a></p>
+        <% } %>
+
+        <div class="article-title pd-35">
+            <span><%= this.article.info.title %></span>
+        </div>
+
+        <div class="author pd-35">
+            <a class="author-nick" href="<%= this.article.author.url %>"><%= this.article.author.nickname %></a>
+            <%= this.article.info.date||''%>
+        </div>
+
+        <!--以下为内容-->
+        <%= this.article.info.contents ? this.article.info.contents : '<div class="no-article">精彩内容稍后呈上...<div>' %>
+        <div class="author_end">
+            <a class="author-ico" href="<%= this.article.author.url %>">
+                <img src="<%= this.article.author.thumb %>" alt=""/>
+            </a>
+            <a class="author-nick" href="<%= this.article.author.url %>"><%= this.article.author.nickname %></a>
+            <a class="author-identity" href="<%= this.article.author.url %>"><%= this.article.author.identity||'VerySide编辑'%></a>
+            <a class="author-btn" href="<%= this.article.author.url %>">主页</a>
+        </div>
+    </div>
+        <!--<div class="no-more"></div>-->
+
+        <div class="recommend">
+            <div class="recommend-line">
+                <!--<em></em>-->
+                <p>相关推荐</p>
+            </div>
+            <content class="common-list-wrapper new-list-wrapper">
+
+                <div class="content-list" id="content-list" temId="j-tmpl-newlist">
+
+                    <% if(this.article.recommend){ var contList = this.article.recommend; %>
+                    <% contList.forEach(function(info,index){ %>
+                    <%if(index<2){%>
+                    <section>
+                        <a class="lista" href="<%= info.url %>">
+
+                            <div class="list-img">
+                                <img src="<%= info.thumb %>" alt="">
+                            </div>
+                            <div class="list-desc">
+                                <h3 class="list-title"><%= info.title %></h3>
+                            </div>
+                        </a>
+                    </section>
+                    <%}%>
+
+                    <% }) %>
+                    <% } %>
+                </div>
+            </content>
+        </div>
+        <% } %>
+
+        <div id="comments">
+
+            <!--<a class="publish-comm" id="publish_comm" href="javascript:;">
+                <span><i></i>评论...</span>
+                <span>发表</span>
+            </a>-->
+            <div class="publish-comm" href="javascript:;">
+                <input class="pdl-56" type="text" id="comments_area" placeholder="评论...">
+                <a href="javascript:;" id="publish_comm">发表</a>
+                <i id="pen_icon"></i>
+            </div>
+
+            <% if(this.article.comment && this.article.comment instanceof Array){ var comment=this.article.comment;%>
+            <div class="comments-lists" temId="j-tmpl-commentslist">
+                <p id="comments-user-avatar" style="display: none;"><%= this.user_info.avatar||""%></p>
+                <p id="comments-user-nickname" style="display: none;"><%= this.user_info.nickname||""%></p>
+                <h1>
+                    评论(<span><%= this.article.info.comment||""%></span>)
+                </h1>
+                <% if(comment.length>0){%>
+                <%comment.forEach(function(cur,index){%>
+                <div>
+                    <img class="avatar" src="<%= cur.avatar ||'/style/h5/images/model_comment.png'%>" alt="">
+                    <div class="action-btn" uid="<%= cur.uid||''%>">
+                        <span class="reply">回复</span>
+                        <span class="del">删除</span>
+                    </div>
+                    <%if(cur.reply && cur.reply.contents){%>
+                    <div class="responder" comment_id="<%= cur.id||''%>">
+                        <span class="name"><%= cur.nickname||"方格用户"%></span>
+                        <span class="time"><%= cur.time||""%></span>
+                        <p class="response-text"><%= cur.contents||""%></p>
+                    </div>
+                    <div class="reviewer">
+                        <span class="name"><%= cur.reply.nickname||"方格用户"%></span>
+                        <!--<span class="time"><%= cur.time||""%></span>-->
+                        <p class="reviewer-text"><%= cur.reply.contents||""%></p>
+                    </div>
+                    <%}else{%>
+
+                    <div class="reviewer noresponse" comment_id="<%= cur.id||''%>">
+                        <span class="name"><%= cur.nickname||"方格用户"%></span>
+                        <span class="time"><%= cur.time||""%></span>
+                        <p class="reviewer-text"><%= cur.contents||""%></p>
+                    </div>
+                    <%}%>
+                </div>
+                <%})%>
+                <%}%>
+
+            </div>
+            <%}%>
+            <%if(this.article.comment instanceof Array && this.article.comment.length == 0){%>
+            <div class="nocomment">
+                暂无，来分享看法吧!
+            </div>
+            <%}%>
+
+            <%if(this.article.comment instanceof Array && parseInt(this.article.info.comment)/10 > 1){%>
+            <div class="comments-checkMore">
+                <a class="msg load-more-comments-msg active" id="comments-checkMore-btn" href="javascript:;" target="_self">
+                    <span class="more-btn">查看更多评论</span>
+                    <span class="u-icon-arr"></span>
+                </a>
+                <div class="msg comments-loading">
+                    加载中
+                    <div></div>
+                </div>
+                <div class="msg comments-no-data">没有更多评论了</div>
+            </div>
+            <%}%>
+
+
+        </div>
+
+    </div>
+        <%# component/banner.html%>
+        <%# component/footer.html%>
+        <%# component/return_top.html%>
+        <%# helper/footer.html %>
+        <%# component/filter_dialog.html%>
+        <!--<div class="comm-area" style="display: none">
+            <div class="comm-btns">
+                <a id="cancel_comm" href="javascript:;">取消</a>
+                <a id="push_comm" href="javascript:;">发表</a>
+            </div>
+            <textarea name="" id="comments_area" cols="30" rows="10">
+
+    </textarea>
+        </div>-->
+        <script id="j-tmpl-commentslist" type="text/template">
+            {{~it.list:value:index}}
+            <div>
+                <img class="avatar" src="{{= value.avatar||'' }}" alt="">
+                <div class="action-btn" uid="{{= value.uid }}">
+                    <span class="reply">回复</span>
+                    <span class="del">删除</span>
+                </div>
+                {{? value.reply && value.reply.contents }}
+                <div class="responder" comment_id="{{=  value.id||'' }}">
+                    <span class="name">{{= value.nickname||"方格用户" }}</span>
+                    <span class="time">{{= value.time||'' }}</span>
+                    <p class="response-text">{{= value.contents||'' }}</p>
+                </div>
+                <div class="reviewer">
+                    <span class="name">{{= value.reply.nickname||'' }}</span>
+                    <p class="reviewer-text">{{= value.reply.contents||'' }}</p>
+                </div>
+                {{??}}
+                <div class="reviewer noresponse" comment_id="{{= value.id}}">
+                    <span class="name">{{= value.nickname||'' }}</span>
+                    <span class="time">{{= value.time||'' }}</span>
+                    <p class="reviewer-text">{{= value.contents||''}}</p>
+                </div>
+                {{?}}
+            </div>
+
+            {{~}}
+        </script>

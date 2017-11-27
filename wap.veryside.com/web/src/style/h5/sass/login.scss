@@ -1,0 +1,276 @@
+@import '../storebase';
+@import '../components/header';
+
+.body-wrapper{
+  margin: 0;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top:0;
+  background: url("../images/login-bg.jpg") no-repeat center;
+  background-size: cover;
+
+  #close_login{
+    position: absolute;
+    right: px2rem(20);
+    top: px2rem(20);
+    width: px2rem(40);
+    height: px2rem(40);
+    background: url(/assets/images/close.png) center no-repeat;
+    background-size: contain;
+  }
+  #login-box{
+    padding: 0 px2rem(60);
+    margin: px2rem(190) 0 px2rem(40);
+    .cell-phone{
+      border-bottom: 1px solid #fff;
+      height: px2rem(90);
+      line-height: px2rem(90);
+      color: #fff;
+      margin: px2rem(40) 0 px2rem(10);
+      span{
+        @include px2px(font-size,32);
+        margin-right: px2rem(10);
+      }
+      input{
+        border: none;
+        background: transparent;
+        color: #fff;
+        @include px2px(font-size,28);
+        width:px2rem(512);
+        height: px2rem(80);
+        line-height:px2rem(80);
+        padding-left: px2rem(24);
+        &::-webkit-input-placeholder { /* WebKit browsers */
+          color: #939393;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          color: #939393;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+          color: #939393;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+          color: #939393;
+        }
+      }
+
+    }
+    .vercode{
+      width: 100%;
+      height:px2rem(90);
+      line-height: px2rem(90);
+      overflow: hidden;
+      border-bottom: 1px solid #fff;
+      margin-bottom: px2rem(10);
+      display: none;
+      input{
+        width: px2rem(250);
+        height: px2rem(90);
+        line-height: px2rem(90);
+        background: none;
+        border: none;
+        color: #fff;
+        @include px2px(font-size,28);
+        float: left;
+        margin-top: px2rem(10);
+        //letter-spacing: 6px;
+        &::-webkit-input-placeholder { /* WebKit browsers */
+          color: #939393;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          color: #939393;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+          color: #939393;
+        }
+
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+          color: #939393;
+        }
+
+      }
+      img{
+        display: block;
+        width: px2rem(200);
+        height: px2rem(60);
+        float: right;
+        margin-top: px2rem(20);
+        cursor: pointer;
+        background-color: #fff;
+      }
+
+    }
+    .verificationCode{
+      border-bottom: 1px solid #fff;
+      height: px2rem(90);
+      line-height: px2rem(90);
+      color: #fff;
+      span{
+        @include px2px(font-size,32);
+        margin-right: px2rem(10);
+      }
+      input{
+        @include px2px(font-size,28);
+        background: transparent;
+        border: none;
+        color: #fff;
+        width: px2rem(250);
+        &::-webkit-input-placeholder { /* WebKit browsers */
+          color: #939393;
+        }
+        &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+          color: #939393;
+        }
+        &::-moz-placeholder { /* Mozilla Firefox 19+ */
+          color: #939393;
+        }
+        &:-ms-input-placeholder { /* Internet Explorer 10+ */
+          color: #939393;
+        }
+      }
+      #code_num{
+        padding-left: px2rem(24);
+        cursor: not-allowed;
+      }
+      #getVerCode{
+        width: px2rem(250);
+        @include px2px(font-size,28);
+        text-align: center;
+        cursor: pointer;
+        position: relative;
+        padding-left: px2rem(5);
+        margin: 0;
+        border-left: 1px solid #fff;
+        border-radius: 0;
+        //text-align: right;
+      }
+
+    }
+    .remind{
+      height: px2rem(126);
+      text-align: center;
+      p{
+        text-align: center;
+        color: #ed2323;
+        height: px2rem(126);
+        line-height: px2rem(126);
+        @include px2px(font-size,20);
+      }
+    }
+    #phone_login_btn{
+      width: 100%;
+      height: px2rem(80);
+      line-height: px2rem(80);
+      background: transparent;
+      color: #fff;
+      @include px2px(font-size,36);
+      border: 1px solid #fff;
+      cursor: pointer;
+      //margin-top: px2rem(106);
+    }
+    .userAgreement{
+      height: px2rem(104);
+      line-height: px2rem(104);
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      input{
+        display:inline-block;
+        width: px2rem(20);
+        height: px2rem(20);
+      }
+      a{
+        display: inline-block;
+        height:px2rem(20);
+        line-height: px2rem(20);
+        color: #fff;
+        margin: px2rem(-2) 0 0 px2rem(10);
+        @include px2px(font-size,20);
+
+      }
+    }
+    .third-party{
+      overflow: hidden;
+      margin-bottom: 40px;
+      h1{
+        text-align: center;
+        @include px2px(font-size,24);
+        color: #fff;
+        font-weight: 200;
+        height: px2rem(40);
+        line-height: px2rem(40);
+        margin: px2rem(124) 0 px2rem(50);
+      }
+      &>div{
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: row;
+        -moz-flex-direction: row;
+        -ms-flex-direction: row;
+        flex-direction: row;
+        -webkit-justify-content: space-around;
+        -moz-justify-content: space-around;
+        -ms-justify-content: space-around;
+        justify-content: space-around;
+        span{
+
+          width: px2rem(100);
+          text-align: center;
+          color: #fff;
+          @include px2px(font-size,24);
+          a{
+            display: block;
+            width: px2rem(100);
+            height: px2rem(100);
+            margin-bottom: 10px;
+          }
+        }
+        .qq a{
+          background:url("../images/user/qq.png") no-repeat center;
+          background-size: px2rem(100) px2rem(100);
+
+        }
+        .wb a{
+          background:url("../images/user/weibo.png") no-repeat center;
+          background-size: px2rem(100) px2rem(100);
+        }
+      }
+
+    }
+  }
+  #welcome-text{
+    width: 364px;
+    height: 420px;
+    line-height: 420px;
+    background: rgba(0,0,0,.8);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -182px;
+    margin-top: -210px;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 6px;
+    display: none;
+  }
+
+}
+
+.warning-border{
+  -webkit-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -moz-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -ms-transition:border linear .2s,-webkit-box-shadow linear .5s;
+  -webkit-box-shadow:0 0 18px rgb(191, 5, 7);
+  -moz-box-shadow:0 0 18px rgb(191, 5, 7);
+  -ms-box-shadow:0 0 18px rgb(191, 5, 7);
+  border-color: rgba(237, 21, 13, 0.75);
+}
+
+
+

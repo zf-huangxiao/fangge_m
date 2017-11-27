@@ -1,0 +1,58 @@
+@import '../storebase';
+html,body{
+  width: 100%;
+  height: 100%;
+}
+#main-container{
+  width: 100%;
+  height: 100%;
+  background: url("../images/app_bg.jpg")no-repeat center;
+  background-size: 100% 100%;
+  overflow: hidden;
+  position: relative;
+  .logo{
+    width: px2rem(120);
+    height:px2rem(120);
+    background: url("../images/app_logo.png")no-repeat center;
+    background-size: px2rem(120) px2rem(120);
+    position: absolute;
+    left: 50%;
+    margin-left: px2rem(-60);
+    top: 30%;
+  }
+  .download{
+    width: px2rem(420);
+    height: px2rem(66);
+    background: url("../images/app_download.png?t=0401") no-repeat center;
+    background-size:px2rem(420) px2rem(66);
+    position: absolute;
+    left: 50%;
+    margin-left: px2rem(-210);
+    bottom: px2rem(186);
+    a{
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+  &>div:nth-of-type(3){
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: px2rem(80);
+    text-align: center;
+    a{
+      display: block;
+      width: px2rem(240);
+      height:px2rem(26);
+      background: url("../images/app_welcome.png") no-repeat center;
+      background-size: px2rem(240) px2rem(26);
+      margin: 0 auto;
+    }
+  }
+}
+
+#cnzz_stat_icon_1260581570{
+  display: none;
+}

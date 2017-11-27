@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>方格时尚</title>
+	<style>
+		html{
+			overflow-y: scroll;
+		}
+		[data-dpr="2"] p, [data-dpr="3"] p,
+		[data-dpr="2"] div, [data-dpr="3"] div {
+			max-height: 100%;
+		}
+	</style>
+	<meta http="x-dns-prefetch-control" content="on" />
+	<meta name="viewport" content="initial-scale=1.0,width=device-width,user-scalable=0,maximum-scale=1.0"/>
+	<%/* 启用360浏览器的极速模式(webkit) */%>
+	<meta name="renderer" content="webkit" />
+
+	<%/* 优先使用IE最新版本和Chrome */%>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	<%/* 不使用百度 Siteapp */%>
+	<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="grey" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="keywords" content="方格时尚,型人,潮流,品牌,模特,购物,街拍">
+	<meta id="description" name="description" content="方格时尚,型人,潮流,品牌,模特,购物,街拍">
+
+	<%=
+	(function(link){
+		var str = '';
+		var base = this.STYLES_BASE;
+		var jsbase = this.SCRIPT_BASE;
+		var sversion = this.SVERSION;
+		link && link.map(function(src){
+			str += '<script type="text/javascript" src="'+jsbase+'assets/js/size.js?'+sversion+'"></script>';
+			str += '<link rel="stylesheet" type="text/css" href="'+base+'style/'+src+'.css?'+ sversion +'"/>';
+		});
+		return str;
+	})(this._CSSLinks);
+	%>
+	<% if(this._CSSstack && this._CSSstack.length) { %>
+	<style type="text/css">
+		<%= this._CSSstack.join("\n");%>
+	</style>
+	<% } %>
+
+</head>
+
+<body>

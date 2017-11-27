@@ -1,0 +1,79 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+<%# component/nav.html %>
+
+<div class="body-wrapper">
+	<div class="swiper-top-banner">
+		<div class="swiper-wrapper">
+
+			<% if(this.indexlist.focus){ var focusPic = this.indexlist.focus; %>
+				<% focusPic.forEach(function(info,index){ %>
+					<div class="swiper-slide">
+						<a href="<%= info.url %>">
+							<img src="<%= info.thumb %>" alt="">
+							<h2>
+								<span><%= info.title||''%></span>
+								<span><%= info.title1||''%></span>
+							</h2>
+						</a>
+					</div>
+				<% }) %>
+			<% } %>
+		</div>
+		<div class="top-banner-pagination"></div>
+	</div>
+
+	<h1 class="middle-flag"><%= this.indexlist.seo.h1||''%></h1>
+	<content class="common-list-wrapper new-list-wrapper">
+
+		<div class="content-list" id="content-list" temId="j-tmpl-newlist">
+
+			<% if(this.indexlist.list){ var contList = this.indexlist.list; %>
+				<% contList.forEach(function(info,index){ %>
+				<section data-time="<%= info.time %>">
+					<a class="lista" href="<%= info.url %>">
+						<div class="list-desc">
+							<h3 class="list-title"><%= info.title %></h3>
+							<div class="list-btm">
+								<span><%= info.tag %></span>
+								<span><%= info.timeStr %></span>
+							</div>
+						</div>
+						<div class="list-img">
+							<img src="<%= info.thumb %>" alt="">
+						</div>
+					</a>
+				</section>
+				<% }) %>
+			<% } %>
+		</div>
+	</content>
+	<%# component/load_more.html%>
+
+</div>
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+
+<script id="j-tmpl-newlist" type="text/template">
+	{{ for(var i = 0; i < it.list.length; i++){ }}
+
+	<section data-time="{{=it.list[i].time}}">
+		<a class="lista" href="{{=it.list[i].url}}">
+			<div class="list-desc">
+				<h3 class="list-title">{{=it.list[i].title}}</h3>
+				<div class="list-btm">
+					<span>{{=it.list[i].tag}}</span>
+					<span>{{=it.list[i].timeStr}}</span>
+				</div>
+			</div>
+			<div class="list-img">
+				<img src="{{=it.list[i].thumb}}" alt="">
+			</div>
+		</a>
+	</section>
+
+	{{ } }}
+</script>

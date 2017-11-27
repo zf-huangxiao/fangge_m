@@ -1,0 +1,292 @@
+@import '../storebase';
+@import '../components/header';
+@import '../components/swiper-min';
+@import '../components/footer';
+@import '../components/filter-dialog';
+@import '../components/load-more';
+@import '../components/return-top';
+
+.body-wrapper{
+  width:100%;
+  .introduce{
+    overflow: hidden;
+    &::after{
+      display: block;
+      content: '';
+      width: px2rem(710);
+      height: 1px;
+      -webkit-transform: scaleY(.5);
+      transform: scaleY(.5);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+      background-color: #000;
+      position: absolute;
+      left: 50%;
+      margin-left: px2rem(-355);
+      bottom: 0;
+    }
+    width: 100%;
+    //border-top: 1px solid #e0e0e0;
+    position: relative;
+    .title{
+      z-index: 1;
+      width:100%;
+      //display: -webkit-flex;
+      //display: flex;
+      //flex-direction: column;
+      //justify-content: center;
+      p{
+        width: 100%;
+        text-align: center;
+        a{
+          color: #000;
+          text-decoration: none;
+        }
+      }
+      p:nth-of-type(1){
+        @include px2px(font-size,34);
+        font-family: 宋体;
+        margin: px2rem(56) 0 px2rem(20) 0;
+      }
+      p:nth-of-type(2){
+        @include px2px(font-size,34);
+        font-family: Times New Roman;
+        position: relative;
+        span{
+          display: block;
+          width: px2rem(36);
+          height: px2rem(28);
+          margin-left: px2rem(16);
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: px2rem(-14);
+          background: url("../images/guidepic/bofang@2x.ios.png") no-repeat center;
+          background-size:contain;
+        }
+        span.playing{
+          em{
+            display: block;
+            width: 100%;
+            height: 100%;
+            background: url("../images/guidepic/bofang@2x.ios.gif") no-repeat center;
+            background-size: contain;
+          }
+        }
+      }
+    }
+    a.bigP{
+      display: block;
+      width:100%;
+      height:px2rem(736);
+      overflow: hidden;
+      position: relative;
+      &::before{
+        display: block;
+        content: '点击图片放大(缩小)';
+        width: px2rem(222);
+        height: px2rem(35);
+        text-align: center;
+        line-height: px2rem(35);
+        color: #000;
+        @include px2px(font-size,20);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background: rgba(255,255,255,.9);
+        //background: url("../images/enlarge.png") no-repeat center;
+        //background-size: contain;
+
+      }
+       img{
+         display: block;
+         width: 100%;
+         height: auto;
+         border: none;
+       }
+
+    }
+    a.enlarge{
+      &:before{
+        //background: url("../images/reduce.png") no-repeat center;
+        //background-size: contain;
+      }
+    }
+    h2{
+      @include px2px(font-size,32);
+      line-height: px2rem(44);
+      color: black;
+      width: 100%;
+      text-align: center;
+      margin-top:px2rem(50);
+      margin-bottom: px2rem(30);
+      font-weight: normal;
+
+    }
+    p.intro-desc{
+      padding: 0 px2rem(50) px2rem(50);
+      line-height: px2rem(58);
+      @include px2px(font-size,30);
+      color:#333;
+      text-align: justify;
+      width: 100%;
+      span{
+        display: block;
+        width: 100%;
+      }
+    }
+    p.intro-desc.over-h{
+      position: relative;
+      span{
+        width: 100%;
+        height: px2rem(120);
+        overflow: hidden;
+      }
+    }
+    .hide-box{
+      display: none;
+    }
+    .intro-pic{
+      display: block;
+      width: 100%;
+    }
+    .intro-about{
+      width: 100%;
+      overflow: hidden;
+      padding: px2rem(20) px2rem(50);
+      &>div{
+        width: 100%;
+        height: px2rem(70);
+        line-height: px2rem(70);
+        clear: both;
+        @include px2px(font-size,30);
+        span{
+          display: inline-block;
+          width: px2rem(200);
+          text-align: left;
+          color: #333;
+          float: left;
+        }
+        ul{
+          width:px2rem(450);
+          float: left;
+          li{
+            width: 100%;
+            color: red;
+            float: left;
+            a{
+              display: block;
+              width: 100%;
+              overflow: hidden;
+              color: red;
+            }
+          }
+        }
+        em{
+          display: inline-block;
+          width: px2rem(450);
+          vertical-align: middle;
+          color: #333;
+          font-style: normal;
+          float: left;
+          word-wrap: break-word;
+        }
+
+      }
+    }
+    .allJeans{
+      display: block;
+      width: px2rem(300);
+      text-align: center;
+      margin: px2rem(30) auto;
+      @include px2px(font-size,32);
+      color: #fe1b1b;
+      text-decoration: none;
+    }
+
+    .intro-logo{
+      display: block;
+      width: 100%;
+    }
+  }
+  .articles{
+    width: 100%;
+    position: relative;
+    ul{
+      list-style: none;
+      padding: 0 px2rem(20);
+      li{
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        &:after{
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          height: 1px;
+          width: 100%;
+          background-color: #bbb;
+          -webkit-transform:scaleY(0.5);
+          transform: scaleY(0.5);
+          -webkit-transform-origin:0 0;
+          transform-origin:0 0;
+        }
+        a{
+          display: block;
+          width: px2rem(560);
+          height:px2rem(484);
+          margin: px2rem(60) auto 0;
+          position: relative;
+          img{
+            display: block;
+            width: 100%;
+            height: 100%;
+            border: none;
+          }
+          i{
+            display: block;
+            position: absolute;
+            width: px2rem(564);
+            height: px2rem(132);
+            bottom:px2rem(-3);
+            left:50%;
+            margin-left: px2rem(-282);
+            background: url("../images/guidepic/article.png") no-repeat;
+            background-size: cover;
+          }
+        }
+        p{
+          text-align: center;
+          @include px2px(font-size,28);
+          line-height: px2rem(48);
+          width: px2rem(410);
+          position: relative;
+          left: 50%;
+          margin-left: px2rem(-205);
+          top:px2rem(-50);
+          color: #000000;
+        }
+      }
+      li:last-child{
+        &:after{
+          background-color: #000;
+        }
+      }
+    }
+  }
+  .articles{
+    #drop-down{
+      z-index: 10;
+      display: block;
+      width: px2rem(60);
+      height: px2rem(60);
+      background: url("../images/zhankai@3x.ios.png") no-repeat center;
+      background-size: px2rem(60) px2rem(60);
+      position: absolute;
+      left: 50%;
+      margin-left: px2rem(-30);
+      top: px2rem(-30);
+    }
+  }
+}

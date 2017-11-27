@@ -1,0 +1,101 @@
+@import '../storebase';
+@import '../components/header';
+@import '../components/swiper-min';
+@import '../components/filter-dialog';
+@import '../components/footer';
+
+body>h1{
+  @include px2px(font-size,32);
+  width: 100%;
+  height:px2rem(100);
+  line-height:px2rem(100);
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid #e0e0e0;
+  //&::after{
+  //  content: '';
+  //  display: block;
+  //  width: px2rem(80);
+  //  height: 1px;
+  //  -webkit-transform: scaleY(.5);
+  //  transform:scaleY(.5);
+  //  -webkit-transform-origin: 0 0;
+  //  transform-origin: 0 0;
+  //  background: #000;
+  //  position: absolute;
+  //  left: 50%;
+  //  margin-left: px2rem(-40);
+  //  bottom: px2rem(35);
+  //
+  //
+  //}
+  button{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: px2rem(150);
+    height: px2rem(100);
+    line-height:px2rem(100);
+    @include px2px(font-size,30);
+    background: none;
+    border: none;
+    padding-right: px2rem(20);
+  }
+}
+.top-bar{
+  //border-bottom:1px solid #e0e0e0 ;
+}
+.body-wrapper{
+  width: 100%;
+  padding: px2rem(33) px2rem(20) 0 px2rem(20);
+  margin-bottom: px2rem(60);
+  overflow: hidden;
+  color:#333;
+  .feedback{
+    width: 100%;
+    height:px2rem(410);
+    padding: px2rem(15);
+    border:1px solid #cfcfcf;
+    textarea{
+      width: 100%;
+      height: 100%;
+      border: none;
+      resize: none;
+      @include px2px(font-size,30);
+      line-height: px2rem(50);
+    }
+  }
+  .contactway{
+    width: 100%;
+    height: px2rem(64);
+    line-height: px2rem(64);
+    margin: px2rem(33) 0 px2rem(210);
+    border: 1px solid #e0e0e0;
+    @include px2px(font-size,30);
+    padding-left: px2rem(15);
+    input{
+      @include px2px(font-size,30);
+      height: px2rem(50);
+      width: px2rem(520);
+      border: none;
+
+    }
+  }
+
+  .box{
+    width: px2rem(560);
+    height:px2rem(200);
+    text-align: center;
+    line-height: px2rem(200);
+    position: fixed;
+    background: #ffffff;
+    border: 1px solid #666;
+    color: #666;
+    top: px2rem(250);
+    left: 50%;
+    margin-left: px2rem(-280);
+    display: none;
+
+  }
+}
+

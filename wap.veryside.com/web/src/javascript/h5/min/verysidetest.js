@@ -1,0 +1,1 @@
+$(document).ready(function(){var o=$(".m-download-ts");o.on("click",function(){navigator.userAgent.match(/(iPhone|iPod|iPad);?/i)&&(location.href="veryside://link?type=10&id=1083",setTimeout(function(){location.href="/verysidetest/"},250),setTimeout(function(){location.reload()},1e3))})});

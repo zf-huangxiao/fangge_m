@@ -1,0 +1,13 @@
+<div class="top-menu-bar">
+    <div class="right-shadow"></div>
+    <div class="top-menu-list">
+        <nav>
+            <% if(this.indexlist.nav){ var navItem = this.indexlist.nav; %>
+                <% navItem.forEach(function(info,index){ %>
+                    <a class="<%= info.select ? 'active' : '' %>" href="<%= index == 0 ? '/' : info.url %>"><%= info.title %></a>
+                <% }) %>
+            <% } %>
+        </nav>
+    </div>
+    <div class="white-block"></div>
+</div>

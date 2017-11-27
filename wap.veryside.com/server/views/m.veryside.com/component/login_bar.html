@@ -1,0 +1,27 @@
+<div class="login-btn-wrapper">
+
+    <% if(this.user_info && this.user_info.nickname){ %>
+
+    <% if(this.status == "info"){ %>
+    <a class="avatar-wrapper" href="javascript:;"><img src="<%= this.user_info.avatar + '?t=' + Math.random() %>" alt=""></a>
+
+    <a class="login-btn" href="javascript:;"><%= this.user_info.nickname %></a>
+
+    <% }else{ %>
+        <a class="avatar-wrapper" href="javascript:;" onclick="window.location.href='/user/info?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self">
+            <img src="<%= this.user_info.avatar + '?t=' + Math.random() %>" alt="">
+        </a>
+        <a class="login-btn" href="javascript:;" onclick="window.location.href='/user/info?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self"><%= this.user_info.nickname %></a>
+    <% } %>
+    <a href="javascript:;" target="_self" id="logout">退出登录</a>
+
+    <% } else { %>
+
+    <% if(this.status !== "login"){ %>
+    <div class="lg-btn-wrapper">
+        <a class="login-btn" id="goToLogin" href="javascript:;" onclick="window.location.href='/user?url='+encodeURIComponent('http://' + window.location.host + window.location.pathname)" target="_self">登录</a>
+    </div>
+    <% } %>
+
+    <% } %>
+</div>

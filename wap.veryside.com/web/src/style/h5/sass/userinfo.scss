@@ -1,0 +1,210 @@
+@import '../storebase';
+@import '../components/header';
+@import '../components/swiper-min';
+@import '../components/filter-dialog';
+@import '../components/footer';
+@import '../components/nav';
+@import '../components/calendar';
+
+.body-wrapper{
+  margin: 0;
+  position: relative;
+  &>h1{
+    position: relative;
+    text-align: center;
+    height: px2rem(108);
+    line-height: px2rem(108);
+    @include px2px(font-size,32);
+    &:after{
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background: #000;
+      width: 100%;
+      height: 1px;
+      -webkit-transform: scaleY(0.5);
+      transform: scaleY(0.5);
+      -webkit-transform-origin: 0 0;
+      transform-origin: 0 0;
+    }
+  }
+  .myInfo{
+    width: 100%;
+    padding: 0 px2rem(22);
+    @include px2px(font-size,28);
+    form{
+      .avatar{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: px2rem(100);
+        span{
+          display: inline-block;
+          float: left;
+        }
+        span:last-child{
+          a{
+            color: #000;
+            height: px2rem(60);
+            line-height: px2rem(60);
+          }
+        }
+        .pic{
+          width: px2rem(116);
+          height: px2rem(116);
+          float: left;
+          margin: 0 26px;
+          position: relative;
+          border-radius: 50%;
+          overflow: hidden;
+          img{
+            max-width: px2rem(116);
+            max-height: px2rem(116);
+            width: px2rem(116);
+            height: px2rem(116);
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%,-50%);
+            -moz-transform: translate(-50%,-50%);
+            -o-transform: translate(-50%,-50%);
+            -ms-transform: translate(-50%,-50%);
+            transform: translate(-50%,-50%);
+
+          }
+        }
+
+      }
+      .nickName{
+        //height: 90px;
+        //overflow: hidden;
+        &>span{
+          display: block;
+          margin: px2rem(46) 0 px2rem(22);
+          padding-left: px2rem(14);
+        }
+        input{
+          //border: 1px solid #bfbfbf;
+          color: #999;
+          width: 100%;
+          height: px2rem(66);
+          line-height: px2rem(66);
+          padding-left: px2rem(12);
+        }
+        span.warning{
+          color: red;
+
+
+        }
+      }
+      .gender{
+
+        &>span{
+          display: block;
+          margin: px2rem(46) 0 px2rem(22);
+          padding-left: px2rem(14);
+        }
+        select{
+          width:100%;
+          height: px2rem(66);
+          padding-left: px2rem(12);
+          line-height: px2rem(66);
+          color: #999;
+          //border: 1px solid #bfbfbf;
+          border-radius: 0;
+          position: relative;
+          background: #fff;
+
+          option{
+            background: #fff;
+          };
+        }
+      }
+      .birthday{
+        span{
+          display: block;
+          margin: px2rem(46) 0 px2rem(22);
+          padding-left: px2rem(14);
+        }
+
+        input{
+          min-width:96%;
+          height: px2rem(66);
+          line-height: px2rem(66);
+          color: #999;
+          padding-left: px2rem(12);
+          //border: 1px solid #bfbfbf;
+          position: relative;
+        }
+      }
+      .city{
+        input{
+          width:100%;
+          height: px2rem(66);
+          line-height: px2rem(66);
+          color: #999;
+          padding-left: px2rem(12);
+          //border: 1px solid #bfbfbf;
+          position: relative;
+        }
+
+        span{
+          display: block;
+          margin: px2rem(46) 0 px2rem(22);
+          padding-left: px2rem(14);
+        }
+      }
+      input#keep{
+        display: block;
+        width:px2rem(190);
+        height: px2rem(66);
+        line-height: px2rem(66);
+        text-align: center;
+        background: transparent;
+        border: 1px solid #ccc;
+        margin: px2rem(60) auto;
+        cursor: pointer;
+      }
+
+    }
+  }
+
+}
+#ui-datepicker-div{
+  .ui-datepicker-month,.ui-datepicker-year{
+    float: left;
+  }
+  .ui-datepicker-calendar{
+    tbody td a{
+      text-align: center!important;
+    }
+  }
+  .ui-datepicker-prev,.ui-datepicker-next{
+    cursor: pointer;
+  }
+}
+
+.notLogIn{
+  width: 400px;
+  height: 140px;
+  margin: 100px auto;
+  line-height: 140px;
+  text-align: center;
+}
+
+
+.border{
+  border: 1px solid transparent;
+  border-image: url(../images/border1px.png) 2 repeat;
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2){
+  .border{
+    border: 1px solid transparent;
+    border-image: url(../images/border1px.png) 2 stretch;
+    -webkit-border-image: url(../images/border1px.png) 2 stretch;
+  }
+}

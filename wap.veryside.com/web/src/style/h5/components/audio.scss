@@ -1,0 +1,93 @@
+.my_article_audio{
+  padding: 0 px2rem(36);
+  overflow: hidden;
+  .control{
+    overflow: hidden;
+    display: table;
+    width: 100%;
+    height: px2rem(88);
+    margin:px2rem(76) 0 px2rem(60) 0;
+    .play_btn{
+      display: table-cell;
+      width: px2rem(88);
+      height: px2rem(88);
+      background: url("../images/pause1.png") no-repeat center;
+      background-size: px2rem(88) px2rem(88);
+    }
+    .pause{
+      display: table-cell;
+      width: px2rem(88);
+      height: px2rem(88);
+      background: url("../images/play1.png") no-repeat center;
+      background-size: px2rem(88) px2rem(88);
+    }
+    .audio_title{
+      display: table-cell;
+      vertical-align: middle;
+      height:px2rem(88);
+      @include px2px(font-size,30);
+      padding: 0 px2rem(24);
+
+    }
+    .audio_jump{
+      display: table-cell;
+      width: px2rem(40);
+      height: px2rem(40);
+      background: url("../images/jump.png") no-repeat center;
+      background-size: px2rem(40) px2rem(40);
+      &.jumping{
+        background: url("../images/jump.gif") no-repeat center;
+        background-size: px2rem(40) px2rem(40);
+      }
+    }
+
+
+  }
+  .progress{
+    overflow: hidden;
+    display: none;
+    .time{
+      width: 100%;
+      overflow: hidden;
+      span{
+        @include px2px(font-size,20);
+        color: #666;
+      }
+      .gone{
+        float: left;
+      }
+      .total{
+        float: right;
+      }
+    }
+    .process_bar_outer{
+      width: 100%;
+      background: #CCCCCC;
+      height: px2rem(6);
+      margin: px2rem(20) 0;
+      border-radius: px2rem(6);
+      -webkit-border-radius: px2rem(6);
+      .process_bar_inner{
+        width: 0;
+        height: 100%;
+        background: #fb1313;
+        position: relative;
+        border-radius: px2rem(6);
+        -webkit-border-radius: px2rem(6);
+        i{
+          display: block;
+          width: 1px;
+          height: px2rem(28);
+          background: #000;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          margin-top: px2rem(-14);
+
+
+        }
+      }
+    }
+
+  }
+}

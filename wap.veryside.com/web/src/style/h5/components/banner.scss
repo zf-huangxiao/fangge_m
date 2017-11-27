@@ -1,0 +1,30 @@
+.banner{
+  width: 100%;
+  position:fixed;
+  bottom: 0;
+  left: 0;
+  -webkit-transform: translateZ(0);
+  z-index: 10;
+  display: none;
+  a{
+    display: block;
+    width: 100%;
+    img{
+      display: block;
+      border: none;
+      width: 100%;
+    }
+  }
+  i{
+    display: block;
+    width: px2rem(60);
+    height:px2rem(60);
+    position: absolute;
+    right: 0;
+    top:0;
+  }
+}
+.zhanwei{
+  width: 100%;
+  display: none;
+}

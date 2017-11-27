@@ -1,0 +1,58 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+
+<div class="body-wrapper">
+    <%if(this.indexlist){ var info=this.indexlist.info,views=info.view%>
+    <h1>
+        <span><%= info.title||''%></span>
+        <%if(info.etitle.length>0){%>
+        <span>
+           <%=info.etitle %>
+        </span>
+        <%}%>
+    </h1>
+    <a href="javascript:;"><img class="introduce" src="<%=info.picture%>" alt="<%= info.etitle%>"></a>
+    <p><%= info.description%></p>
+
+    <%if(views&&views instanceof Array&&views.length>0){%>
+    <div class="about">
+        <% views.forEach(function(view,index){ %>
+
+        <div>
+            <span><%= view.label %>:</span>
+
+                <%if(Object.prototype.toString.call(view.val)=="[object Array]"&&view.val.length>0){ %>
+                <ul>
+                    <% view.val.forEach(function(v,i){%>
+                    <li><a href="<%= v.url%>"><%= v.title%></a></li>
+                    <%})%>
+                </ul>
+                <%}else if (Object.prototype.toString.call(view.val) == "[object String]"){ %>
+                <em><%= view.val%></em>
+                <%}%>
+
+
+        </div>
+        <%})%>
+
+    </div>
+    <%}%>
+
+
+    <%if(info.link.title){ var link=info.link%>
+    <a href="<%= link.url%>" class="allJeans"><%= link.title%></a>
+    <%}%>
+    <%if(info.logo){%>
+    <img class="logo" src="<%= info.logo %>" alt="">
+    <%}%>
+    <%}%>
+
+
+</div>
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+
+

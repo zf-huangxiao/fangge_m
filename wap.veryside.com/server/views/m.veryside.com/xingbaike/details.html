@@ -1,0 +1,116 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+
+<% if(this.indexlist){ var lists=this.indexlist.list,info=this.indexlist.info %>
+<div class="body-wrapper">
+    <div class="introduce">
+        <a class="bigP">
+            <img src="<%= info.thumb%>" alt="">
+        </a>
+        <div class="title">
+            <p>
+                <%if(info.title){%>
+                <a class="cTitle" href="<%= this.indexlist.infourl%>">
+                    <%= info.title%>
+                </a>
+                <%}%>
+            </p>
+            <p>
+                <%if(info.etitle){%>
+                <a class="eTitle" href="<%= this.indexlist.infourl%>">
+                    <%= info.etitle||''%>
+                </a>
+                <%}%>
+                <%if(info.audio){%>
+                <span class="audio_control">
+                    <em></em>
+                </span>
+                <%}%>
+            </p>
+
+            <%if(info.audio){%>
+            <audio src="<%= info.audio%>" preload="auto"></audio>
+            <%}%>
+        </div>
+        <h2><%= info.summary||""%></h2>
+        <p class="intro-desc <%= lists.length>0?'over-h' :''%>">
+                <span>
+                 <%= info.description||""%>
+                </span>
+        </p>
+        <div class="<%= lists.length > 0 ? 'hide-box':''%>">
+            <img class="intro-pic" src="<%=info.picture||''%>" alt="">
+            <div class="intro-about">
+                <%if(info.view && info.view instanceof Array){var views = info.view;%>
+                <% views.forEach(function(view,index){ %>
+                <div>
+                    <span><%= view.label||'' %>:</span>
+
+                    <%if(Object.prototype.toString.call(view.val)=="[object Array]"&&view.val.length>0){ %>
+                    <ul>
+                        <% view.val.forEach(function(v,i){%>
+                        <li><a href="<%= v.url%>"><%= v.title%></a></li>
+                        <%})%>
+                    </ul>
+                    <%}else if (Object.prototype.toString.call(view.val) == "[object String]"){ %>
+                    <em><%= view.val%></em>
+                    <%}%>
+
+
+                </div>
+                <%})%>
+                <%}%>
+
+            </div>
+            <%if(info.link){ var link=info.link%>
+            <a href="<%= link.url||'javascript:;'%>" class="allJeans"><%= link.title||""%></a>
+            <%}%>
+            <%if(info.logo){%>
+            <img class="intro-logo" src="<%= info.logo %>" alt="">
+            <%}%>
+        </div>
+
+
+    </div>
+    <div class="articles">
+        <%if(lists.length > 0){%>
+        <em id="drop-down"></em>
+        <%}%>
+        <ul class="content-list"  id="content-list" temId="j-tmpl-newlist">
+            <% lists.forEach(function(list,index){%>
+            <li>
+                <a href="<%= list.url%>">
+                    <img src="<%= list.thumb %>" alt="">
+                    <i></i>
+                </a>
+                <p><%= list.title||""%></p>
+            </li>
+            <%})%>
+
+        </ul>
+    </div>
+    <% if(lists.length>2){%>
+    <%# component/load_more.html%>
+    <%}%>
+</div>
+<%}%>
+
+
+
+<%# component/footer.html%>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+
+<%# helper/footer.html %>
+<script id="j-tmpl-newlist" type="text/template">
+    {{ for(var i = 0; i < it.list.length; i++){ }}
+    <li>
+        <a href="{{=it.list[i].url}}">
+            <img src="{{=it.list[i].thumb}}" alt="{{=it.list[i].tag}}">
+            <i></i>
+        </a>
+        <p>{{=it.list[i].title}}</p>
+
+    </li>
+    {{ } }}
+</script>

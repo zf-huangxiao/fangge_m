@@ -1,0 +1,24 @@
+<%# helper/header.html %>
+<a href="javascript:;" class="m-download-ts">VerySide</a>
+<script src="/assets/js/jquery.min.js"></script>
+
+<%=
+(function(link){
+    var str = '';
+    var base = this.SCRIPT_BASE;
+    var sversion = this.SVERSION;
+    link && link.map(function(src){
+        str += '<script type="text/javascript" src="'+base+'javascript/'+src+'.js?'+sversion+'"></script>';
+    });
+    return str;
+    })(this._JSLinks);
+%>
+
+<% if(this._JSstack && this._JSstack.length) { %>
+<script type="text/javascript">
+    <%= this._JSstack.join("\n");%>
+</script>
+<% } %>
+
+</body>
+</html>

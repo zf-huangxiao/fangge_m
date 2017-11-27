@@ -1,0 +1,35 @@
+<%# helper/header.html %>
+<%# component/header.html %>
+
+<div class="body-wrapper">
+    <a class="search-top" href="<%= this.indexlist.banner && this.indexlist.banner.url %>"><img src="<%= this.indexlist.banner ? this.indexlist.banner.thumb : '' %>" alt="<%= this.indexlist.banner ? this.indexlist.banner.title : '' %>"></a>
+    <div class="search-main-wrapper">
+        <div class="search-main">
+            <input class="search-input" id="search-input" placeholder="请输入搜索内容"  value="<%= this.isDefault == 1 ? this._searchKeyword : '' %>" type="text">
+            <a class="search-btn" id="search-btn" href="javascript:;"></a>
+        </div>
+        <%# component/search-tmpl.html%>
+    </div>
+    <div class="search-content-wrapper">
+
+        <% if(this.isDefault == 0){ %>
+
+            <%# component/search-default.html%>
+
+        <% }else{ %>
+
+            <%# component/search-result.html%>
+
+        <% } %>
+
+    </div>
+
+    <% if(this.isDefault == 1 && this.searchresult.list.length > 0 ){ %>
+    <%# component/load_more.html%>
+    <% } %>
+</div>
+<%# component/footer.html%>
+<%# helper/footer.html %>
+<%# component/filter_dialog.html%>
+
+

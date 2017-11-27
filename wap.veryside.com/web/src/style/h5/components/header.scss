@@ -1,0 +1,63 @@
+header{
+    width: 100%;
+    .app-store-bar{
+        height: px2rem(194);
+        background: grey;
+        display: none;
+    }
+
+    .top-bar{
+        //display: -webkit-flex;
+        //display: flex;
+        //-webkit-flex-direction: row;
+        //flex-direction: row;
+        //-webkit-justify-content:space-between;
+        //justify-content: space-between;
+        //-webkit-align-items: center;
+        //align-items: center;
+        position: relative;
+        height: px2rem(106);
+        padding: 0 px2rem(20);
+        background: #181818;
+
+        .filter{
+            //display: block;
+
+            //float: left;
+            position: absolute;
+            top:50%;
+            left: px2rem(20);
+            width: px2rem(35);
+            height: px2rem(25);
+            margin-top: px2rem(-13);
+            background: url("/assets/images/top-slide.png") no-repeat center;
+            background-size: cover;
+        }
+        .veryside{
+            //display: block;
+            position: absolute;
+            left: 50%;
+            top:50%;
+            width: px2rem(240);
+            height: px2rem(36);
+            margin-left: px2rem(-120);
+            margin-top: px2rem(-18);
+            text-align: center;
+            background: url("/assets/images/m-header-logo-white.png") no-repeat center;
+            background-size: px2rem(240) px2rem(36);
+
+        }
+        .search{
+            //float: right;
+            //display: block;
+            position: absolute;
+            top:50%;
+            right: px2rem(20);
+            width: px2rem(32);
+            height: px2rem(32);
+            margin-top: px2rem(-16);
+            background: url("/assets/images/search.png") no-repeat center;
+            background-size: cover;
+        }
+    }
+}

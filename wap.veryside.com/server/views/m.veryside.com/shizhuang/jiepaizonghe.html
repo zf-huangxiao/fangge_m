@@ -1,0 +1,86 @@
+<%if(this.indexlist instanceof Array && this.indexlist.length==0){%>
+<%# helper/404.html %>
+<%}else{%>
+<%# helper/header.html %>
+<%# component/header.html %>
+<div class="body-wrapper">
+	<div class="top-classify">
+		<div class="top-pic">
+			<%if(this.indexlist.picture){ var pictureUrl = this.indexlist.picture;%>
+			<img src="<%= pictureUrl %>" alt="">
+			<%}%>
+			<em id="drop-down"></em>
+		</div>
+		<ul>
+			<%if(this.indexlist.topic instanceof Array && this.indexlist.topic.length > 0){var topic = this.indexlist.topic%>
+			<%if(this.pageTitle.indexOf('街拍') > -1){%>
+			<%topic.forEach(function(cur,index){%>
+			<%if(index < 5){%>
+			<li>
+				<a href="<%= cur.url||''%>"><%= cur.title||''%></a>
+			</li>
+			<%}%>
+			<%})%>
+			<%}else{%>
+			<%topic.forEach(function(cur,index){%>
+			<%if(index < 4){%>
+			<li>
+				<a href="<%= cur.url||''%>"><%= cur.title||''%></a>
+			</li>
+			<%}%>
+			<%})%>
+
+			<%}%>
+			<%}%>
+		</ul>
+	</div>
+	<h1 class="middle-flag"><%= this.indexlist.seo.h1||''%></h1>
+	<div class="content-lists" id="content-list" temId="j-tmpl-newlist">
+		<%if(this.indexlist.list instanceof Array && this.indexlist.list.length > 0){var lists = this.indexlist.list%>
+		<%lists.forEach(function(cur,index){%>
+		<section data-time="<%= cur.time||0 %>">
+			<a class="lista" href="<%= cur.url||'javascript:;' %>">
+				<div class="list-desc">
+					<h3 class="list-title"><%= cur.title||'' %></h3>
+					<div class="list-btm">
+						<span><%= cur.timeStr||'' %></span>
+					</div>
+				</div>
+				<div class="list-img">
+					<img src="<%= cur.thumb||'javascript:;' %>" alt="">
+				</div>
+			</a>
+		</section>
+		<%})%>
+		<%}%>
+
+	</div>
+	<%# component/load_more.html%>
+</div>
+<%# component/filter_dialog.html%>
+<%# component/return_top.html%>
+<%# component/footer.html%>
+<%# helper/footer.html %>
+
+<script id="j-tmpl-newlist" type="text/template">
+	{{ for(var i = 0; i < it.list.length; i++){ }}
+
+	<section data-time="{{=it.list[i].time}}">
+		<a class="lista" href="{{=it.list[i].url}}">
+			<div class="list-desc">
+				<h3 class="list-title">{{=it.list[i].title}}</h3>
+				<div class="list-btm">
+					<span>{{=it.list[i].timeStr}}</span>
+				</div>
+			</div>
+			<div class="list-img">
+				<img src="{{=it.list[i].thumb}}" alt="">
+			</div>
+		</a>
+	</section>
+
+	{{ } }}
+</script>
+
+<%}%>
+

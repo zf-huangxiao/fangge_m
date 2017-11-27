@@ -1,0 +1,97 @@
+<div class="filter-dialog" id="filter-dialog" style="display: none">
+    <div class="top-bar">
+        <a class="close-filter" href="javascript:;"></a>
+        <a class="veryside" href="/"></a>
+        <a class="search-filter" href="/search/"></a>
+    </div>
+    <div class="filter-scroll-wrapper">
+        <h2 class="jingxuan">精选集</h2>
+        <div class="swiper-container" id="swiper-container-bar">
+            <div class="swiper-wrapper">
+                <% if(this.filterlist.options){var filterTop = this.filterlist.options; %>
+                <% filterTop.forEach(function(info,index){ %>
+                <div class="swiper-slide <%= index == 0 ? 'active-nav' : '' %>"><%= info.title %>
+                    <em class="<%= index == 0 ? 'show' : '' %>"></em>
+                </div>
+                <% }) %>
+                <% } %>
+                <!--<div class="swiper-slide active-nav">时装-->
+                <!--<em class="show"></em>-->
+                <!--</div>-->
+                <!--<div class="swiper-slide">街拍&人物-->
+                <!--<em></em>-->
+                <!--</div>-->
+                <!--<div class="swiper-slide">生活-->
+                <!--<em></em>-->
+                <!--</div>-->
+                <!--<div class="swiper-slide">大事件-->
+                <!--<em></em>-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="swiper-container" id="swiper-container-content">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="filter-content-comm filter-fashion">
+                        <% if(this.filterlist.list){ var swiperList_a = this.filterlist.list[0]; %>
+                        <ul>
+                            <% swiperList_a.forEach(function(info){ %>
+                            <li><a href="<%= info.url %>"><%= info.title %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="filter-content-comm stars">
+                        <% if(this.filterlist.list){ var swiperList_b = this.filterlist.list[1]; %>
+                        <ul>
+                            <% swiperList_b.forEach(function(info){ %>
+                            <li><a href="<%= info.url %>"><%= info.title %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="filter-content-comm bxps">
+                        <% if(this.filterlist.list){ var swiperList_c = this.filterlist.list[2]; %>
+                        <ul>
+                            <% swiperList_c.forEach(function(info){ %>
+                            <li><a href="<%= info.url %>"><%= info.title %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="filter-content-comm life">
+                        <% if(this.filterlist.list){ var swiperList_d = this.filterlist.list[3]; %>
+                        <ul>
+                            <% swiperList_d.forEach(function(info){ %>
+                            <li><a href="<%= info.url %>"><%= info.title %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <% if(this.filterlist.list[4]){%>
+                <div class="swiper-slide">
+                    <div class="filter-content-comm baike">
+                        <% if(this.filterlist.list){ var swiperList_e = this.filterlist.list[4]; %>
+                        <ul>
+                            <% swiperList_e.forEach(function(info){ %>
+                            <li><a href="<%= info.url %>"><%= info.title %></a></li>
+                            <% }) %>
+                        </ul>
+                        <% } %>
+                    </div>
+                </div>
+                <%}%>
+            </div>
+        </div>
+    </div>
+    <%# component/login_bar.html%>
+
+</div>
